@@ -300,7 +300,7 @@ private fun balanceChanged(kinBalance: KinBalance) {
     // ...
 }
 ```
-We then start checking for updated by adding `kin.checkTransactions()` to the `onCreate` method.
+We then start checking for updates by adding `kin.checkTransactions()` to the `onCreate` method.
 
 ### 3. Adding a UI
 
