@@ -1,19 +1,19 @@
-### KIN + Ramp
+### Kin + Ramp
 # Getting Started with Android and Ramp
 
-In this basic tutorial, we will create a simple KIN-enabled Android App and learn how to add __Ramp__. The result can be found [here](https://github.com/kin-labs/kin-android-ramp-demo).
+In this basic tutorial, we will create a simple Kin-enabled Android App and learn how to add __Ramp__. The result can be found [here](https://github.com/kin-labs/kin-android-ramp-demo).
 
 ![Ramp + Android Example](https://i.imgur.com/NHGmTEm.gif)
 
 ### What is Ramp?
 > [_Ramp is an easy way to let your users buy crypto directly from your dApp._](https://docs.ramp.network/)
 
-If your app integrates KIN, this may be a barrier for users that are new to crypto. They don't have KIN to send to your apps wallet and hence can't get started. Meet __Ramp__: With Ramp users can easily buy KIN within your app.
-Ramp offers a streamlined exchange flow. Users can buy KIN simply with their credit card, online banking or SEPA transfers. They handle the entire exchange. You don't have to provide your own KIN or anything.
+If your app integrates Kin, this may be a barrier for users that are new to crypto. They don't have Kin to send to your apps wallet and hence can't get started. Meet __Ramp__: With Ramp users can easily buy Kin within your app.
+Ramp offers a streamlined exchange flow. Users can buy Kin simply with their credit card, online banking or SEPA transfers. They handle the entire exchange. You don't have to provide your own Kin or anything.
 
-### 1. Adding KIN + Ramp to the Project
+### 1. Adding Kin + Ramp to the Project
 We start out by creating a new Android Project using Kotlin and with the minApiLevel of 21 (lower will work too, but multiDex will have to be enabled).
-Let's add KIN's Android SDK and also the Ramp SDK while we are at it.
+Let's add Kin's Android SDK and also the Ramp SDK while we are at it.
 ```
 dependencies {
     ...
@@ -32,12 +32,12 @@ allprojects {
     }
 }
 ```
-After rebuilding the project we should be ready to connect KIN to the App
+After rebuilding the project we should be ready to connect Kin to the App
 
-### 2. Connecting to KIN
+### 2. Connecting to Kin
 > Before taking your app to production, you should register it to receive your own App Index and have Kin Foundation (KF) cover transaction fees. Learn more here: https://portal.kin.org/login
 
-To quickly get started with KIN inside an Android app, KF created the [KIN-Starter-Kit for Android](https://github.com/kintegrate/kin-starter-android/blob/main/app/src/main/java/com/kin/kin/Kin.kt). We will add the `Kin.kt` code to our project:
+To quickly get started with Kin inside an Android app, KF created the [Kin-Starter-Kit for Android](https://github.com/kintegrate/kin-starter-android/blob/main/app/src/main/java/com/kin/kin/Kin.kt). We will add the `Kin.kt` code to our project:
 
 ```
 package com.example.kimramp
@@ -265,7 +265,7 @@ class Kin(
 }
 ```
 
-`Kin.kt` provides a more simplified KIN interface, that we then use in our `MainActivity`. The app we build is in production mode, because the KIN bought on Ramp are on the production network. We set our `appIndex` to 0. When integrating KIN into your app, you should register your own `appIndex`.
+`Kin.kt` provides a more simplified Kin interface, that we then use in our `MainActivity`. The app we build is in production mode, because the Kin bought on Ramp are on the production network. We set our `appIndex` to 0. When integrating Kin into your app, you should register your own `appIndex`.
 Webhooks are not a part of this tutorial, so the user credentials are just set to `"demo_uid"` and `"demo_password"`.
 
 ```
@@ -407,13 +407,13 @@ textViewAddress.text = kin.address()
 To update the current balance we earlier created the `balanceChanged(kinBalance: KinBalance)` callback. In here we can now update the text of `textViewBalance`.
 ```
 private fun balanceChanged(kinBalance: KinBalance) {
-    textViewBalance.text = "Your current balance: "+kinBalance.amount.toString()+" KIN"
+    textViewBalance.text = "Your current balance: "+kinBalance.amount.toString()+" Kin"
 }
 ```
 
 ### 4. Adding Ramp!
 
-Now that KIN is setup and we show the publicKey and balance, we can finally integrate Ramp. Firstly, we initialize the RampSDK.
+Now that Kin is setup and we show the publicKey and balance, we can finally integrate Ramp. Firstly, we initialize the RampSDK.
 ```
 lateinit var rampSdk: RampSDK
 
@@ -421,7 +421,7 @@ override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_main)
 
-    // ... KIN initialization
+    // ... Kin initialization
 
     rampSdk = RampSDK()
 
@@ -435,7 +435,7 @@ private fun buyKinOnRamp(walletAddress: String) {
         hostLogoUrl = "https://i.imgur.com/tNi1q70.png", // replace with your own logo!
         hostAppName = getString(R.string.app_name),
         userAddress = walletAddress,
-        swapAsset = "SOLANA_KIN",
+        swapAsset = "SOLANA_Kin",
     )
     
     //...
@@ -454,7 +454,7 @@ val callback = object: RampCallback {
             purchaseViewToken: String,
             apiUrl: String
         ) {
-            Log.d("MainActivity", "Ramp Purchase succeeded: "+purchase.cryptoAmount+" KIN")
+            Log.d("MainActivity", "Ramp Purchase succeeded: "+purchase.cryptoAmount+" Kin")
             Toast.makeText(applicationContext, "Your Ramp Purchase succeeded", Toast.LENGTH_SHORT).show()
         }
 
@@ -476,7 +476,7 @@ buttonRamp.setOnClickListener {
 }
 ```
 ![You did it](https://media1.giphy.com/media/vmtxnxveVUodG/giphy.gif?cid=ecf05e47pvjtabuo0jwms4yjnrqp3ivu9kmnnkvq2hbkzba5&rid=giphy.gif&ct=g)
-Congratulations! We have completed our Getting Started with KIN and Ramp!
+Congratulations! We have completed our Getting Started with Kin and Ramp!
 
 You can learn more about the Ramp and its Android integration [here](https://docs.ramp.network/mobile/android-sdk).
 You can also find the complete project on [GitHub](https://github.com/kin-labs/kin-android-ramp-demo).
