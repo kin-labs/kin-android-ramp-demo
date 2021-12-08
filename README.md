@@ -290,7 +290,7 @@ class MainActivity : AppCompatActivity() {
 }
 ```
 
-To update the balance and transactions we add a `balanceChanged` and `paymentHappened` callback.
+To update the balance and transactions we add a `balanceChanged` and `paymentHappened` callback (outside `onCreate`).
 ```
 private fun paymentHappened(payments: List<KinPayment>) {
     //...
@@ -399,7 +399,7 @@ override fun onCreate(savedInstanceState: Bundle?) {
 }
 ```
 
-The wallet address should be shown in `textViewAddress`. That can be done by using `kin.address()`. So let's add:
+The wallet address should be shown in `textViewAddress`. That can be done by using `kin.address()`. So let's add (inside `onCreate`):
 ```
 textViewAddress.text = kin.address()
 ```
