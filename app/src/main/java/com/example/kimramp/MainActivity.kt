@@ -59,7 +59,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun balanceChanged(kinBalance: KinBalance) {
-        textViewBalance.text = "Your current balance: "+kinBalance.amount.toString()+" KIN"
+        textViewBalance.text = "${kinBalance.amount} KIN"
     }
 
     private fun buyKinOnRamp(walletAddress: String) {
@@ -81,7 +81,7 @@ class MainActivity : AppCompatActivity() {
                 purchaseViewToken: String,
                 apiUrl: String
             ) {
-                Log.d("MainActivity", "Ramp Purchase succeeded: "+purchase.cryptoAmount+" KIN")
+                Log.d("MainActivity", "Ramp Purchase succeeded: ${purchase.cryptoAmount} KIN")
             }
 
             override fun onWidgetClose() {

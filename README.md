@@ -1,7 +1,7 @@
 ### KIN + Ramp
 # Getting Started with Android and Ramp
 
-In this basic tutorial, we will create a simple Kin-enabled Android App and learn how to add __Ramp__. The result can be found [here](https://github.com/kin-labs/kin-android-ramp-demo).
+In this basic tutorial, we will create a simple KIN-enabled Android App and learn how to add __Ramp__. The result can be found [here](https://github.com/kin-labs/kin-android-ramp-demo).
 
 ![Ramp + Android Example](https://i.imgur.com/NHGmTEm.gif)
 
@@ -265,7 +265,7 @@ class Kin(
 }
 ```
 
-`Kin.kt` provides a more simplified Kin interface, that we then use in our `MainActivity`. The app we build is in production mode, because the KIN bought on Ramp are on the production network. We set our `appIndex` to 0. When integrating KIN into your app, you should register your own `appIndex`.
+`Kin.kt` provides a more simplified KIN interface, that we then use in our `MainActivity`. The app we build is in production mode, because the KIN bought on Ramp are on the production network. We set our `appIndex` to 0. When integrating KIN into your app, you should register your own `appIndex`.
 Webhooks are not a part of this tutorial, so the user credentials are just set to `"demo_uid"` and `"demo_password"`.
 
 ```
@@ -421,7 +421,7 @@ override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_main)
 
-    // ... kin initialization
+    // ... KIN initialization
 
     rampSdk = RampSDK()
 
