@@ -1,5 +1,4 @@
-### Kin + Ramp
-# Getting Started with Android and Ramp
+# Integrate RAMP into your KIN Android App
 
 In this basic tutorial, we will create a simple Kin-enabled Android App and learn how to add __Ramp__. The result can be found [here](https://github.com/kin-labs/kin-android-ramp-demo).
 
@@ -8,7 +7,7 @@ In this basic tutorial, we will create a simple Kin-enabled Android App and lear
 ### What is Ramp?
 > [_Ramp is an easy way to let your users buy crypto directly from your dApp._](https://docs.ramp.network/)
 
-If your app integrates Kin, this may be a barrier for users that are new to crypto. They don't have Kin to send to your apps wallet and hence can't get started. Meet __Ramp__: With Ramp users can easily buy Kin within your app.
+If your app integrates Kin, this may be a barrier for users that are new to crypto. They don't have Kin to send to your app's wallet and hence can't get started. Meet __Ramp__: With Ramp users can easily buy Kin within your app.
 Ramp offers a streamlined exchange flow. Users can buy Kin simply with their credit card, online banking or SEPA transfers. They handle the entire exchange. You don't have to provide your own Kin or anything.
 
 ### 1. Adding Kin + Ramp to the Project
@@ -265,7 +264,7 @@ class Kin(
 }
 ```
 
-`Kin.kt` provides a more simplified Kin interface, that we then use in our `MainActivity`. The app we build is in production mode, because the Kin bought on Ramp are on the production network. We set our `appIndex` to 0. When integrating Kin into your app, you should register your own `appIndex`.
+`Kin.kt` provides a simplified Kin interface, that we then use in our `MainActivity`. The app we build is in production mode, because the Kin bought on Ramp are on the production network. We set our `appIndex` to 0. When integrating Kin into your app, you should register your own `appIndex`.
 Webhooks are not a part of this tutorial, so the user credentials are just set to `"demo_uid"` and `"demo_password"`.
 
 ```
@@ -413,7 +412,7 @@ private fun balanceChanged(kinBalance: KinBalance) {
 
 ### 4. Adding Ramp!
 
-Now that Kin is setup and we show the publicKey and balance, we can finally integrate Ramp. Firstly, we initialize the RampSDK.
+Now that Kin is set up and we can show the publicKey and balance, we can finally integrate Ramp. Firstly, we initialize the RampSDK.
 ```
 lateinit var rampSdk: RampSDK
 
@@ -428,7 +427,7 @@ override fun onCreate(savedInstanceState: Bundle?) {
     // ... views and more
 }
 ```
-We will place the Ramp purchase flow inside a function called `buyKinOnRamp()`. The function should also accept the `walletAddress`. That address will then be passed into the Ramp `Config` object. In the `Config` you can configure your apps name and logo which is then shown in Ramp's UI.
+We will place the Ramp purchase flow inside a function called `buyKinOnRamp()`. The function should also accept the `walletAddress`. That address will then be passed into the Ramp `Config` object. In the `Config` you can configure your app's name and logo which is then shown in Ramp's UI.
 ```
 private fun buyKinOnRamp(walletAddress: String) {
     val config = Config(
@@ -469,15 +468,16 @@ Finally we can start the transaction flow:
 rampSdk.startTransaction(this, config, callback)
 ```
 
-Now we can call that function after a button press. So in the `onCreate` we register the click listener for the `buttonRamp`. Note that balance changes won't be immediate.
+Now we can call that function with a button press. So in the `onCreate` we register the click listener for the `buttonRamp`. Note that balance changes won't be immediate.
 ```
 buttonRamp.setOnClickListener {
     buyKinOnRamp(kin.address())
 }
 ```
 ![You did it](https://media1.giphy.com/media/vmtxnxveVUodG/giphy.gif?cid=ecf05e47pvjtabuo0jwms4yjnrqp3ivu9kmnnkvq2hbkzba5&rid=giphy.gif&ct=g)
+
 Congratulations! We have completed our Getting Started with Kin and Ramp!
 
-You can learn more about the Ramp and its Android integration [here](https://docs.ramp.network/mobile/android-sdk).
+You can learn more about Ramp and its Android integration [here](https://docs.ramp.network/mobile/android-sdk).
 You can also find the complete project on [GitHub](https://github.com/kin-labs/kin-android-ramp-demo).
 
